@@ -3,7 +3,8 @@ package com.blog.app.BlogApplication.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
+import jakarta.persistence.*;
+import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -2,6 +2,7 @@ package com.blog.app.BlogApplication.service.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import jakarta.persistence.*;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
@@ -95,10 +96,16 @@ public class PostServiceImpl implements PostService {
 //        post.setContent(postDto.getContent());
         return post;
     }
-
+    
 	@Override
 	public PostResponse getAllPosts(int pageNo, int pageSize, String sortBy, String sortDir) {
 		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	//Test method for getAllPostsJoin
+	@Override
+	public PostResponse getAllPostsJoin(int pageNo, String sortBy, String sortDir) {
 		return null;
 	}
 

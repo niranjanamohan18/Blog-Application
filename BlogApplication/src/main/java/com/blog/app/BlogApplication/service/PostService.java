@@ -18,4 +18,6 @@ public interface PostService {
     void deletePostById(long id);
 
     List<PostDto> getPostsByCategory(Long categoryId);
+
+	PostResponse getAllPostsJoin(int pageNo,String sortBy, String sortDir);
 }

@@ -2,7 +2,8 @@ package com.blog.app.BlogApplication.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
+import jakarta.persistence.*;
+import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,7 +55,7 @@ public class PostController {
         return ResponseEntity.ok(postService.getPostById(id));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}") 
     public ResponseEntity<PostDto> updatePost(@Valid @RequestBody PostDto postDto, @PathVariable(name = "id") long id){
 
        PostDto postResponse = postService.updatePost(postDto, id);
@@ -70,6 +71,12 @@ public class PostController {
         return new ResponseEntity<>("Post entity deleted successfully.", HttpStatus.OK);
     }
 
+    @DeleteMapping("/{id}/category")
+    public ResponseEntity<List<PostDto>> getPostByCategory(@PathVariable ("id") Long categoryId){
+    	List<PostDto> postDtos = postService.getPostsByCategory(categoryId);
+    	return ResponseEntity.ok(postDtos);
+    }
+    
     // Build Get Posts by Category REST API
     // http://localhost:8080/api/posts/category/3
     @GetMapping("/category/{id}")
